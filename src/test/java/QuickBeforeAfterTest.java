@@ -1,8 +1,17 @@
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class QuickBeforeAfterTest {
+	
+	// @BeforeClass,@AfterClass must be static only.
+	// DB connections must be provided in @BeforeClass and closed in @AfterClass
+	@BeforeClass
+	public static void beforeClass() {
+		System.out.println("Before Class.");
+	}
 
 	@Before
 	public void setup() {
@@ -22,5 +31,10 @@ public class QuickBeforeAfterTest {
 	@After
 	public void teardown() {
 		System.out.println("After Test.");
+	}
+	
+	@AfterClass
+	public static void afterClass() {
+		System.out.println("After Class.");
 	}
 }
