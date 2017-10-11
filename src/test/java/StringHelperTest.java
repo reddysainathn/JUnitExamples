@@ -2,12 +2,19 @@ import com.example.helper.*;
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 public class StringHelperTest {
 
-	StringHelper stringHelper = new StringHelper();
-
+	StringHelper stringHelper;
+	
+	@Before
+	public void setup() {
+		System.out.println("Executing");
+		stringHelper = new StringHelper();
+	}
 	// Sample JUnit Test
 	@Test
 	public void truncateAInFirst2PositionsTest_2() {
@@ -29,6 +36,10 @@ public class StringHelperTest {
 	public void testAreFirstAndLastTwoCharactersTheSame_2() {
 		assertEquals(true, stringHelper.areFirstAndLastTwoCharactersTheSame("ABAB"));
 		assertTrue("Condition Passed", stringHelper.areFirstAndLastTwoCharactersTheSame("ABAB"));
+	}
+	@After
+	public void teardown() {
+		System.out.println("After Test.");
 	}
 
 }
